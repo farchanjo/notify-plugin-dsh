@@ -1,0 +1,13 @@
+# Bundle patch: insert the notify service as a profile row.
+#
+# Every limit is optional. Invalid values fail the mount instead of degrading
+# silently. Consumers reach the service with `inject: ['notify']`.
+- insert:
+    - id: notify-plugin-dsh
+      name: 'notify-plugin-dsh'
+      config:
+        maxSubscribers: 512
+        maxRetainedTopics: 128
+        retainByDefault: false
+        replayOnSubscribe: false
+        handlerTimeoutMs: 5000

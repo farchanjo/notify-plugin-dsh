@@ -1,0 +1,53 @@
+{
+  "name": "notify-plugin-dsh",
+  "version": "0.1.0",
+  "description": "Topic-based publish/subscribe service for DSH plugins: isolated delivery, wildcards, and optional replay of the last value.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "notify",
+    "pubsub",
+    "events",
+    "cordis"
+  ],
+  "author": "Fabricio Archanjo <farchanjo@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "dsh-plugin.json",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "biome.json"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "lint": "biome check lib test",
+    "lint:fix": "biome check --write lib test"
+  },
+  "engines": {
+    "node": "^22.19 || >=24",
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.4",
+    "@deepseek-ai/cordis": "^4.0.5"
+  }
+}
