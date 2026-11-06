@@ -103,21 +103,19 @@ Invalid config fails the mount instead of degrading silently.
 
 ## Install
 
-```bash
-dsh plugin --profile dsh-tui add /root/dev/notify-plugin-dsh
-dsh plugin --profile web add /root/dev/notify-plugin-dsh
+Every tagged version ships a packed tarball on the
+[Releases](https://github.com/farchanjo/notify-plugin-dsh/releases) page:
+
+```sh
+dsh plugin --profile <profile> add \
+  https://github.com/farchanjo/notify-plugin-dsh/releases/download/v<version>/notify-plugin-dsh-<version>.tgz
 ```
 
-Restart dsh after adding the row.
+Verify the asset against the `.sha256` published beside it before installing.
+Remove with `dsh plugin --profile <profile> remove notify-plugin-dsh`.
 
-Remove with:
-
-```bash
-dsh plugin --profile dsh-tui remove notify-plugin-dsh
-dsh plugin --profile web remove notify-plugin-dsh
-```
-
-The profile manifest and lockfile are the only configuration files the install changes.
+A git clone works too, for development. The release contract — bump, tag,
+assets, checks — lives in [AGENTS.md](AGENTS.md).
 
 ## Plugin-only contract
 
